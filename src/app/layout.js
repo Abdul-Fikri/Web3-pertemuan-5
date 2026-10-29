@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import Link from "next/link";
+import Footer from "../components/Footer";
+// import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +19,66 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+return (
+    <html lang="id">
+      <body style={{ margin: 0, fontFamily: 'Segoe UI, sans-serif' }}>
+        <header style={{ background: '#1e3a8a', color: 'white', padding: '14px 28px', display: 'flex', justifyContent: 'space-between' }}>
+          <strong>🏛️ SIAKAD POLITEKNIK TAKUMI</strong>
+          <nav style={{ display: 'flex', gap: '18px' }}>
+            <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Beranda</Link>
+            <Link href="/mahasiswa" style={{ color: 'white', textDecoration: 'none' }}>Direktori Mahasiswa</Link>
+            <Link href="/dokumen/2026/kurikulum" style={{ color: 'white', textDecoration: 'none' }}>Arsip Dokumen</Link>
+            <Link href="/dashboard" style={{ color: '#fde047', textDecoration: 'none', fontWeight: 'bold' }}>Dashboard KRS</Link>
+          </nav>
+        </header>
+
+        <div style={{ padding: '24px', maxWidth: '960px', margin: '0 auto' }}>
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   );
+  // return (
+//     <html lang="id">
+//       <body style={{ margin: 0, fontFamily: 'Segoe UI, sans-serif', backgroundColor: '#f8fafc' }}>
+//         {/* NAVBAR GLOBAL: Akan selalu tampil di bagian atas semua halaman */}
+//         <header style={{
+//           backgroundColor: '#0f172a',
+//           color: 'white',
+//           padding: '16px 32px',
+//           display: 'flex',
+//           justifyContent: 'space-between',
+//           alignItems: 'center'
+//         }}>
+//           <div style={{ fontWeight: 'bold', fontSize: '18px' }}>
+//             🎓 POLITEKNIK TAKUMI
+//           </div>
+//           <nav style={{ display: 'flex', gap: '20px', fontSize: '14px' }}>
+//             <span>Beranda</span>
+//             <span>Program Studi</span>
+//             <span>Beasiswa</span>
+//             <span>Kontak</span>
+//           </nav>
+//         </header>
+
+//         {/* ISI HALAMAN UTAMA (page.js akan disuntikkan ke dalam {children} ini) */}
+//         <div style={{ minHeight: '80vh' }}>
+//           {children}
+//         </div>
+
+//         {/* FOOTER GLOBAL: Akan selalu tampil di bagian bawah semua halaman */}
+//         <footer style={{
+//           backgroundColor: '#e2e8f0',
+//           color: '#475569',
+//           textAlign: 'center',
+//           padding: '16px',
+//           fontSize: '13px',
+//           marginTop: '40px'
+//         }}>
+//           &copy; 2026 Program Studi Teknologi Informasi — Politeknik Takumi. Dibangun dengan Next.js.
+//         </footer>
+//       </body>
+//     </html>
+//   );
 }
