@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function HalamanTidakDitemukan() {
   return (
     <>
-    <img src="/Loading.jpg" alt="Loading" style={{ width: "300px", marginBottom: "20px" }} />
       <div style={{ textAlign: "center", padding: "60px 20px" }}>
         <h1 style={{ fontSize: "48px", color: "#dc2626", marginBottom: "8px" }}>
           404
